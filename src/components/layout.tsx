@@ -1,6 +1,8 @@
 // src/components/Layout.tsx
 import { Link } from 'react-router-dom';
 
+import { Link, Outlet } from 'react-router-dom';
+
 export function Layout() {
   return (
     <div className="min-h-screen bg-gray-100 font-sans">
@@ -12,6 +14,9 @@ export function Layout() {
           </Link>
         </nav>
       </header>
+      <main className="container mx-auto p-4">
+
+      </main>
     </div>
   );
 }
