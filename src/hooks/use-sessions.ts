@@ -1,6 +1,4 @@
-// src/hooks/use-session-context.ts
 import { useContext } from 'react';
-// IMPORTAÇÃO CORRIGIDA: Aponta para o novo arquivo puro
 import { SessionContext } from '../components/session-context-pure'; 
 import { type SessionContextType } from '../types/session-context-types'; 
 
