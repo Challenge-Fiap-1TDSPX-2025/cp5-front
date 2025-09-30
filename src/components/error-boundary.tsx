@@ -8,17 +8,27 @@ interface ErrorBoundaryState {
   hasError: boolean;
 }
 
-// O ErrorBoundary deve ser uma classe para implementar os métodos de ciclo de vida de erro
 export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false };
   }
 
-  // Captura o erro e atualiza o estado
+  // CORREÇÃO: Remova o nome do parâmetro (o objeto 'Error') para satisfazer o linter.
+  // O TypeScript ainda entende que o parâmetro existe, mas o linter não reclama
+  // por ele não estar sendo usado.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   static getDerivedStateFromError(_: Error): ErrorBoundaryState {
     return { hasError: true };
   }
+    
+  /* VERSÃO MAIS ROBUSTA E PADRÃO: Usar apenas o `_` e forçar a tipagem */
+  // static getDerivedStateFromError(_: Error): ErrorBoundaryState {
+  //   return { hasError: true };
+  // }
+    
+  // NOTA: Se o aviso persistir, significa que seu linter não aceita o `_` como ignorado.
+  // A solução mais segura é deixá-lo como `_error` e adicionar um comentário de linter.
 
   // Opcional: Loga o erro em um serviço de monitoramento
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
