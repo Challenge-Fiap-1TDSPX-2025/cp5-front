@@ -29,7 +29,7 @@ function App() {
     <BrowserRouter>
   {/* Correção essencial: envolver no SessionProvider */}
   <SessionProvider>
-    <Suspense fallback={<LoadingFallback />}>
+    <Suspense fallback={LoadingFallback}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -38,6 +38,7 @@ function App() {
           <Route path="add" element={<AddSessionPage />} />
           {/* Ajuste: rota de sessão com detalhes */}
           <Route path="session/:id/details" element={<SessionDetailsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </Suspense>
