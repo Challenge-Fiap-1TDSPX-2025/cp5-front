@@ -1,5 +1,5 @@
 // src/components/Layout.tsx
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export function Layout() {
   return (
@@ -12,9 +12,6 @@ export function Layout() {
           </Link>
         </nav>
       </header>
-      <main className="container mx-auto p-4">
-        <Outlet />
-      </main>
     </div>
   );
 }
