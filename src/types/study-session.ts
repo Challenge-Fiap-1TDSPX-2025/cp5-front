@@ -5,3 +5,6 @@ export interface StudySession{
     data:string;
     note?:string;
 }
+
+// Para manter o contexto limpo
+export type StudySessionList = StudySession[];
