@@ -1,4 +1,4 @@
-// src/components/Layout.tsx
+
 import { Link, Outlet } from 'react-router-dom';
 
 export function Layout() {
@@ -13,7 +13,7 @@ export function Layout() {
         </nav>
       </header>
       <main className="container mx-auto p-4">
-        <Outlet />
+
       </main>
     </div>
   );
