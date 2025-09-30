@@ -6,5 +6,4 @@ export interface StudySession{
     note?:string;
 }
 
-// Para manter o contexto limpo
 export type StudySessionList = StudySession[];

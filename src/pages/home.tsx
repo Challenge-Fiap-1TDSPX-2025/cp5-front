@@ -1,10 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; 
 import { StudyCard } from '../components/study-card';
-// CORREÇÃO ESSENCIAL: Usar o nome do hook correto, conforme definido em use-sessions.ts
 import { useSessionContext } from '../hooks/use-sessions'; 
 
 export default function HomePage() {
-  // CORREÇÃO: Usar o nome da função 'useSessions'
   const { sessions } = useSessionContext(); 
 
   return (
@@ -19,15 +17,12 @@ export default function HomePage() {
       ) : (
         <div className="grid gap-4"> 
           {sessions.map(session => (
-            // ENVOLVENDO COM O LINK: Permite que o StudyCard seja clicável
             <Link 
               key={session.id} 
-              // Rota correta, conforme definida no App.tsx
-              to={`/session/${session.id}/details`} 
-              className="block hover:shadow-lg transition duration-200"
+              to={`/study-details/${session.id}`} 
+              className="block hover:shadow-lg transition duration-200" 
             >
               <StudyCard 
-                // Mantendo a prop 'studycard' conforme seu requisito
                 studycard={session} 
               />
             </Link>

@@ -1,53 +1,42 @@
 import React, { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-// Importação do hook padronizado
 import { useSessionContext } from '../hooks/use-sessions'; 
 import { type StudySession } from '../types/study-session'; 
 
-// Estado inicial para o formulário
 const INITIAL_FORM_STATE = {
     subject: '',
     minutes: 0,
-    date: new Date().toISOString().split('T')[0], // Define a data de hoje por padrão (formato YYYY-MM-DD)
+    date: new Date().toISOString().split('T')[0], 
     note: '',
 };
 
 export default function AddSessionPage() {
-    // 1. Hook para gerenciar o estado do formulário
     const [formData, setFormData] = useState(INITIAL_FORM_STATE);
-    // 2. Hook para navegar após a submissão
     const navigate = useNavigate();
-    // 3. Hook para acessar a função de adicionar sessão do contexto
     const { addSession } = useSessionContext();
 
-    // Função genérica para lidar com a mudança nos campos
     const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value, type } = e.target;
         
         setFormData(prevData => ({
             ...prevData,
-            // Converte minutos para número, caso contrário, deixa como string
             [name]: type === 'number' ? Number(value) : value, 
         }));
     }, []);
 
-    // Função para lidar com a submissão do formulário
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        // 4. Cria um ID único (Timestamp é uma maneira simples e segura para este caso)
         const newSession: StudySession = {
             id: Date.now().toString(), 
             subject: formData.subject,
             minutes: formData.minutes,
             data: formData.date,
-            note: formData.note || undefined, // Garante que a nota seja undefined se estiver vazia
+            note: formData.note || undefined, 
         };
 
-        // 5. Adiciona a nova sessão via Contexto
         addSession(newSession);
 
-        // 6. Redireciona para a página principal
         navigate('/');
     };
 
@@ -57,7 +46,6 @@ export default function AddSessionPage() {
             
             <form onSubmit={handleSubmit} className="space-y-6">
                 
-                {/* Campo Assunto */}
                 <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Assunto da Sessão</label>
                     <input
@@ -73,7 +61,6 @@ export default function AddSessionPage() {
                 </div>
 
                 <div className="flex space-x-4">
-                    {/* Campo Minutos */}
                     <div className="flex-1">
                         <label htmlFor="minutes" className="block text-sm font-medium text-gray-700 mb-1">Duração (Minutos)</label>
                         <input
@@ -89,7 +76,6 @@ export default function AddSessionPage() {
                         />
                     </div>
                     
-                    {/* Campo Data */}
                     <div className="flex-1">
                         <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">Data do Estudo</label>
                         <input
@@ -104,7 +90,6 @@ export default function AddSessionPage() {
                     </div>
                 </div>
 
-                {/* Campo Notas */}
                 <div>
                     <label htmlFor="note" className="block text-sm font-medium text-gray-700 mb-1">Notas Adicionais (Opcional)</label>
                     <textarea
@@ -118,7 +103,6 @@ export default function AddSessionPage() {
                     />
                 </div>
 
-                {/* Botão de Submissão */}
                 <div className="pt-4">
                     <button
                         type="submit"
