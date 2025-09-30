@@ -12,7 +12,7 @@ export function Layout() {
         </nav>
       </header>
       <main className="container mx-auto p-4">
-        <Outlet /> {/* As páginas serão renderizadas aqui */}
+        <Outlet />
       </main>
     </div>
   );
