@@ -6,6 +6,22 @@
 
 O StudyLog é uma aplicação web desenvolvida em **React** e **TypeScript**. O objetivo é permitir que o usuário **registre, monitore e visualize** suas sessões de estudo, gerenciando informações como o assunto, a duração em minutos e anotações relevantes.
 
+## 📄 Páginas
+
+### Páginas de Roteamento Existentes
+O projeto possui as seguintes rotas e páginas principais:
+* **404:** Página de erro (Não Encontrado).
+* **home:** Página inicial que lista todas as sessões de estudo.
+* **sessao-add:** Página com o formulário para adicionar um novo registro de sessão.
+* **study-details:** Página que exibe os detalhes de uma sessão específica.
+
+
+| Hook | Local de Uso | Finalidade |
+| :--- | :--- | :--- |
+| **`useMemo`** | `session-context.tsx` | Utilizado para **calcular as estatísticas** (`totalSessions`, `totalMinutes`, `averageMinutes`) apenas quando a lista de sessões (`sessions`) muda. |
+| **`useCallback`** | `session-context.tsx` | Utilizado para **memoizar a função `addSession`**, evitando que ela seja recriada a cada renderização do provedor. |
+
+
 ## 🧑‍💻 Membros da Equipe
 
 Abaixo estão os membros do grupo e seus respectivos RMs e perfis no GitHub:
@@ -19,8 +35,6 @@ Abaixo estão os membros do grupo e seus respectivos RMs e perfis no GitHub:
 ---
 
 ## 🛠️ Divisão de Responsabilidades
-
-O projeto foi dividido para garantir a criação de toda a estrutura, tipagem e componentes necessários.
 
 ### Anthony De Souza Henriques (RM566188)
 Anthony foi responsável pela criação do **Estado Global** e pela **Integração de Componentes e Páginas**.
