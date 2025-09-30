@@ -6,6 +6,8 @@ const AddSessionPage = lazy(() => import('./pages/sessao-add'));
 const SessionDetailsPage = lazy(() => import('./pages/detalhes-sessao'));
 const NotFoundPage = lazy(() => import('./pages/404'));
 import gif from "./assets/loading.gif";
+import { StudyList } from './components/study-list';
+import { StudyDetails } from './pages/study-details';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
+            <Route path="/lista" element={<StudyList />} />
+            <Route path="/study-details/:id" element={<StudyDetails />} />
             <Route path="add" element={<AddSessionPage />} />
             <Route path="session/:id" element={<SessionDetailsPage />} />
           </Route>
