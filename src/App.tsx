@@ -13,6 +13,8 @@ const SessionDetailsPage = lazy(() => import('./pages/detalhes-sessao'));
 const NotFoundPage = lazy(() => import('./pages/404')); 
 
 import gif from "./assets/loading.gif";
+import { StudyList } from './components/study-list';
+import { StudyDetails } from './pages/study-details';
 
 function App() {
   const LoadingFallback = (
@@ -25,22 +27,23 @@ function App() {
   
   return (
     <BrowserRouter>
-      {/* CORREÇÃO ESSENCIAL 2: Envolver toda a aplicação no SessionProvider */}
-      <SessionProvider>
-        <Suspense fallback={LoadingFallback}>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<HomePage />} />
-              <Route path="add" element={<AddSessionPage />} />
-              {/* Ajuste de rota: use 'details' para maior clareza de URL */}
-              <Route path="session/:id/details" element={<SessionDetailsPage />} />
-            </Route>
+  {/* Correção essencial: envolver no SessionProvider */}
+  <SessionProvider>
+    <Suspense fallback={<LoadingFallback />}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="lista" element={<StudyList />} />
+          <Route path="study-details/:id" element={<StudyDetails />} />
+          <Route path="add" element={<AddSessionPage />} />
+          {/* Ajuste: rota de sessão com detalhes */}
+          <Route path="session/:id/details" element={<SessionDetailsPage />} />
+        </Route>
+      </Routes>
+    </Suspense>
+  </SessionProvider>
+</BrowserRouter>
 
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </Suspense>
-      </SessionProvider>
-    </BrowserRouter>
   );
 }
 
