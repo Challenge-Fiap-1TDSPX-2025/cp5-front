@@ -1,73 +1,71 @@
-# React + TypeScript + Vite
+# 📚 StudyLog - Gerenciador de Sessões de Estudo (CP5 - 1TDSPX)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 🎯 Objetivo do Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O StudyLog é uma aplicação web desenvolvida em **React** e **TypeScript**. O objetivo é permitir que o usuário **registre, monitore e visualize** suas sessões de estudo, gerenciando informações como o assunto, a duração em minutos e anotações relevantes.
 
-## React Compiler
+## 🧑‍💻 Membros da Equipe
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Abaixo estão os membros do grupo e seus respectivos RMs e perfis no GitHub:
 
-## Expanding the ESLint configuration
+| Nome Completo | RM | GitHub |
+| :--- | :--- | :--- |
+| **Anthony De Souza Henriques** | RM566188 | [Anthony566188](https://github.com/Anthony566188) |
+| **Guilherme Santos Fonseca** | RM564232 | [guifo2604](https://github.com/guifo2604) |
+| **Gustavo Araujo Da Silva** | RM566526 | [gustavoDev02](https://github.com/gustavoDev02) |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Divisão de Responsabilidades
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+O projeto foi dividido para garantir a criação de toda a estrutura, tipagem e componentes necessários.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Anthony De Souza Henriques (RM566188)
+Anthony foi responsável pela criação do **Estado Global** e pela **Integração de Componentes e Páginas**.
+* **Tipagem e Contexto:**
+    * Criação do `type session-context-type`.
+    * Criação dos componentes de Contexto: `error-boundary`, `session-context-pure`, e `session-context`.
+    * Criação do *hook* customizado `use-sessions`.
+    * Ajustes finais de tipagem no `type: study-session`.
+* **Implementação e Integração:**
+    * Implementação e ajuste do componente `study-card`.
+    * Implementação e lógica das páginas: `home`, `sessao-add` e `detalhes-sessao`.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Guilherme Santos Fonseca (RM564232)
+Guilherme focou na criação da **Estrutura Base e Páginas de Roteamento**.
+* Criação do componente de **Layout** (`layout`).
+* Criação de Páginas de Roteamento essenciais: `404`, `detalhes-sessao`, `home`, e `sessao-add`.
+* Implementação da *fallback UI* para o carregamento (**Loading**).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Gustavo Araujo Da Silva (RM566526)
+Gustavo concentrou-se na **Definição de Tipos e Componentes de Exibição de Dados**.
+* Criação do `type study-session` (Tipagem principal do objeto de estudo).
+* Criação do componente de listagem de cards: `study-list`.
+* Criação do componente de exibição de dados: `study-card`.
+* Criação da página de detalhes alternativa: `study-details`.
+* Criação da **Lista de Sessões**.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## 🚀 Como Rodar o Projeto
+
+1.  Clone o repositório:
+    ```bash
+    git clone [https://docs.github.com/pt/repositories/creating-and-managing-repositories/quickstart-for-repositories](https://docs.github.com/pt/repositories/creating-and-managing-repositories/quickstart-for-repositories)
+    ```
+2.  Navegue até a pasta do projeto:
+    ```bash
+    cd cp5-front
+    ```
+3.  Instale as dependências:
+    ```bash
+    npm install
+    ```
+4.  Inicie o servidor de desenvolvimento:
+    ```bash
+    npm run dev
+    ```
+
+O aplicativo estará disponível em `http://localhost:5173/` (ou na porta indicada pelo seu terminal).
