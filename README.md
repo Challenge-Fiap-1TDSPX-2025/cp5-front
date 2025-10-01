@@ -16,7 +16,7 @@ O projeto possui as seguintes rotas e páginas principais:
 
 
 | Hook | Local de Uso |
-| :--- | :--- | :--- |
+| :--- | :--- |
 | **`useMemo`** | `session-context.tsx` |
 | **`useCallback`** | `session-context.tsx` |
 
