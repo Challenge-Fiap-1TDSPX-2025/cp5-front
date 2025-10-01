@@ -1,7 +1,9 @@
 # 📚 StudyLog - Gerenciador de Sessões de Estudo (CP5 - 1TDSPX)
 
----
+## 🔗 Link do Deploy
+**Acesse o projeto final aqui:** [https://cp5-front-three.vercel.app/](https://cp5-front-three.vercel.app/)
 
+---
 ## 🎯 Objetivo do Projeto
 
 O StudyLog é uma aplicação web desenvolvida em **React** e **TypeScript**. O objetivo é permitir que o usuário **registre, monitore e visualize** suas sessões de estudo, gerenciando informações como o assunto, a duração em minutos e anotações relevantes.
