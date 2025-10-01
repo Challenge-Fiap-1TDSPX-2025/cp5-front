@@ -4,9 +4,6 @@
 **Acesse o projeto final aqui:** [https://cp5-front-three.vercel.app/](https://cp5-front-three.vercel.app/)
 
 ---
-## 🎯 Objetivo do Projeto
-
-O StudyLog é uma aplicação web desenvolvida em **React** e **TypeScript**. O objetivo é permitir que o usuário **registre, monitore e visualize** suas sessões de estudo, gerenciando informações como o assunto, a duração em minutos e anotações relevantes.
 
 ## 📄 Páginas
 
@@ -18,15 +15,13 @@ O projeto possui as seguintes rotas e páginas principais:
 * **study-details:** Página que exibe os detalhes de uma sessão específica.
 
 
-| Hook | Local de Uso | Finalidade |
+| Hook | Local de Uso |
 | :--- | :--- | :--- |
-| **`useMemo`** | `session-context.tsx` | Utilizado para **calcular as estatísticas** (`totalSessions`, `totalMinutes`, `averageMinutes`) apenas quando a lista de sessões (`sessions`) muda. |
-| **`useCallback`** | `session-context.tsx` | Utilizado para **memoizar a função `addSession`**, evitando que ela seja recriada a cada renderização do provedor. |
+| **`useMemo`** | `session-context.tsx` |
+| **`useCallback`** | `session-context.tsx` |
 
 
 ## 🧑‍💻 Membros da Equipe
-
-Abaixo estão os membros do grupo e seus respectivos RMs e perfis no GitHub:
 
 | Nome Completo | RM | GitHub |
 | :--- | :--- | :--- |
