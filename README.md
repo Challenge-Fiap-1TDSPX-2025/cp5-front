@@ -47,12 +47,12 @@ Anthony foi responsável pela criação do **Estado Global** e pela **Integraç�
     * Ajustes finais de tipagem no `type: study-session`.
 * **Implementação e Integração:**
     * Implementação e ajuste do componente `study-card`.
-    * Implementação e lógica das páginas: `home`, `sessao-add` e `detalhes-sessao`.
+    * Implementação e lógica das páginas: `home` e `sessao-add`.
 
 ### Guilherme Santos Fonseca (RM564232)
 Guilherme focou na criação da **Estrutura Base e Páginas de Roteamento**.
 * Criação do componente de **Layout** (`layout`).
-* Criação de Páginas de Roteamento essenciais: `404`, `detalhes-sessao`, `home`, e `sessao-add`.
+* Criação de Páginas de Roteamento essenciais: `404`, `home`, e `sessao-add`.
 * Implementação da *fallback UI* para o carregamento (**Loading**).
 
 ### Gustavo Araujo Da Silva (RM566526)
@@ -83,5 +83,3 @@ Gustavo concentrou-se na **Definição de Tipos e Componentes de Exibição de D
     ```bash
     npm run dev
     ```
-
-O aplicativo estará disponível em `http://localhost:5173/` (ou na porta indicada pelo seu terminal).
